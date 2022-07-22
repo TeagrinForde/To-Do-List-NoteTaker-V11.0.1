@@ -1,5 +1,4 @@
 # Note Taker Challenge V 11.0.1
-  ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
 
   ## Description
 
@@ -11,7 +10,6 @@
   - [Usage](#usage)
   - [Contribution Guidelines](#guidelines)
   - [Test Instructions](#test)
-  - [License](#license)
   - [Questions](#userName)
 
   ## Installation
@@ -22,19 +20,6 @@
 
   
 
-  ## Contribution Guidelines
-
-  Contribute at will!
-
-  ## Test Instructions
-
-  NONE
-
-  ## License
-    
-    License link for Apache:
-  https://opensource.org/licenses/Apache-2.0
-  
   ## Questions
   If you would like to see more of my work, checkout my GitHub repositories under the user name TeagrinForde.
   <br>

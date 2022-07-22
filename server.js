@@ -21,13 +21,13 @@ app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/notes.html')); //connect to notes
 });
 
-
 app.get('/api/notes', (req, res) => {
   let response = fs.readFileSync('./db/db.json');
   response = JSON.parse(response);
   res.json(response);
   console.log(response);
 });
+
 
 app.post('/api/notes', (req, res) => {
   console.info(`${req.method} request received`);
@@ -64,10 +64,12 @@ app.post('/api/notes', (req, res) => {
   };  
 });
 
+
 app.get('*', (req, res) => {
     console.info(`${req.method} request redirected...`)  
     res.sendFile(path.join(__dirname, '/public/index.html')) //redirect to correct port
 });
+
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
