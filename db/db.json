@@ -1,14 +1,1 @@
-[
-  {
-    "title": "Test Title",
-    "text": "Test text"
-  },
-  {
-    "title": "Save",
-    "text": "me"
-  },
-  {
-    "title": "You gonna",
-    "text": "save this?"
-  }
-]
+[{"title":"Outside","text":"cut the grass","id":"e89b"},{"title":"Refresh","text":"new note?","id":"c565"}]

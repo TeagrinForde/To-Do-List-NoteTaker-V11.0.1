@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const uuid = require('./helpers/uuid'); 
 
 const PORT = 3001;
 
@@ -9,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static('public'));//connecting to static folder
+app.use(express.static('public'));//connect to static folder
 
 app.get('/', (req, res) => {
   console.info(`${req.method} request received to get HTML.`);
@@ -28,7 +29,6 @@ app.get('/api/notes', (req, res) => {
   console.log(response);
 });
 
-
 app.post('/api/notes', (req, res) => {
   console.info(`${req.method} request received`);
   const { title, text } = req.body;
@@ -37,6 +37,7 @@ app.post('/api/notes', (req, res) => {
     const newNote = {
       title,
       text,
+      id: uuid()
     };
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
       if (err) {
@@ -62,6 +63,16 @@ app.post('/api/notes', (req, res) => {
   } else {
     res.status(500).json('Notes must include content');
   };  
+});
+
+app.delete(`/api/notes/:id`, (req, res) => {
+  let notes = fs.readFileSync('./db/db.json');
+  notes = JSON.parse(notes);  
+  const { id } = req.params;
+  notes = notes.filter(note => note.id !== id)
+  
+  fs.writeFile('./db/db.json', JSON.stringify(notes), (error) => error ? console.error(error) : console.info('Note deleted'));
+  res.json(notes);
 });
 
 
